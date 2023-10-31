@@ -16,10 +16,10 @@ for genome in "${genomes[@]}"
 do
   echo "${genome}"
   # เปลียนเป็น bam ก่อน
-  samtools view -@ 16 "data/only_map_v2/${genome}.sam" > "data/only_map_v2/${genome}_unsorted.bam"
-  exit
+  samtools view -@ 16 -b "data/only_map_v2/${genome}.sam" > "data/only_map_v2/${genome}_unsorted.bam"
+  
   samtools sort -@ 16 "data/only_map_v2/${genome}_unsorted.bam" -o "data/only_map_v2/${genome}.bam"
-  exit
+  
   samtools fastq -@ 16 "data/only_map_v2/${genome}.bam" > "data/map_fastq_v2/${genome}_map.fq"
   exit
 done
