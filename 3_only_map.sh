@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -p compute
+#SBATCH -p memory
 #SBATCH -n 1 -c 64
 #SBATCH -t 24:00:00
 #SBATCH -J BWAjob_ryan
@@ -14,5 +14,5 @@ genomes=(
 for genome in "${genomes[@]}"
 do
   echo "${genome}"
-  samtools view -@ 96 -F 4 "data/raw_sam/${genome}.sam" > "data/only-map/${genome}.sam"
+  samtools view -@ 96 -h -F 4 "data/raw_sam/${genome}.sam" > "data/only-map/${genome}.sam"
 done
