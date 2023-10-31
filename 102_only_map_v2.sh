@@ -21,9 +21,9 @@ genomes=(
   "SRR25731328"
   "SRR25998541"
 )
-mkdir -p only_map_v2
+mkdir -p data/only_map_v2
 for genome in "${genomes[@]}"
 do
   echo "${genome}"
-  samtools view -@ 64 -h F 4 "data/raw_sam_v2/${genome}.sam" > "data/only_map_v2/${genome}.sam"
+  samtools view -@ 64 -h -F 4 "data/raw_sam_v2/${genome}.sam" > "data/only_map_v2/${genome}.sam"
 done
