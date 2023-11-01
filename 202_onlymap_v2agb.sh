@@ -53,11 +53,10 @@ genomes=(
   "SDM5_DKDN220019921-1A_HNG3KDSX5_L4"
   "SDM7_DKDN220019922-1A_HNG3KDSX5_L4"
 )
-mkdir -p "data/only-map_agbv2"
+mkdir -p "data/only-map_v2agb"
 for genome in "${genomes[@]}"
 do
   echo "${genome}"
-  samtools view -@ 64 -h -F 4 "data/raw_sam_agbv2/${genome}.sam" > "data/only-map_agbv2/${genome}.sam"
-  exit
+  samtools view -@ 64 -h -F 4 "data/raw_sam_v2agb/${genome}.sam" > "data/only-map_v2agb/${genome}.sam"
 done
 echo "map filter Done"
